@@ -1,3 +1,4 @@
+using FleetManager.Data;
 using fs_a_2025_blazor_0918_73599.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Add your CarRepository service
+builder.Services.AddScoped<CarRepository>();
 
 var app = builder.Build();
 
@@ -17,7 +21,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 
 app.UseAntiforgery();
 
